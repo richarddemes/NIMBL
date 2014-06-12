@@ -1,0 +1,75 @@
+NIMBL v0.1.0 (17 Jan 2013)
+--------------------------
+
+1.	Methylation input data can contain any number of array sites (i.e. rows, 
+	measurements).
+	
+2.	NIMBL-gene is now much more robust and flexible. It allows as input gene
+	names (standard gene names or refseq accession IDs - NM, NR IDs) or any
+	chromosomal region specified by start and end coordinates. The search of
+	corresponding array sites is only based on genomic location of measurements
+	(i.e. mapinfo column within annotation file), hence array sites are found
+	independently of any (potentially outdated/obsolete) gene annotation.
+	
+	Further NIMBL-gene updates:
+	- More than two groups of samples can be highlighted within the output
+	  plots by specifying additional parameters g3, g4 etc.
+	- Low-quality measurements depending on pval threshold can be highlighted
+	  within the plots.
+	- Extra array sites can be highlighted within the plots by providing an
+	  input file with one or more columns (groups) of array IDs.
+	- The designs of the methylation profile output files has changed.
+	- Only one human genome (repeats in lower case) is used.
+	- The alignment of probes to the genomic sequence is optional.
+	 	
+3.	Updated UCSC refgene table with gene synonyms from NCBI.
+	This increases the 	chances of finding genes specified as input values to
+	NIMBL-gene. A script called 'preprocess_gene_info' can be used to consider
+	updated files from UCSC and NCBI. It also provides a report based on
+	the comparison of gene annotation from the array annotation file vs UCSC/NCBI.
+	A report file is included with the Annotation folder. Please see the user
+	guide for more information.
+
+4.	Replaced the binary MAT file containing the mapping of 450k array sites 
+	with a text file ('450k_gene_annot.txt'). The binary file might cause
+	errors with different Matlab versions or machines.
+	
+5.	Fixed bug: NIMBL-qc crashed when array sites of methylation input and
+	extra annotation for Infinium design type were identical.
+
+6.	Added option in NIMBL-qc to write methylation file of peak-corrected
+	beta values to text file.
+
+7.	Added option in NIMBL to write methylation files of selected or excluded
+	array sites to text file.
+
+8.	Added option in NIMBL to control the plotting of boxplots of samples
+	compared in NIMBL. Updated the layout of the boxplots so that colors
+	highlight the two compared sample groups.
+	
+9.	Updated the layout of the plot showing differentially methylated sites
+	detected by NIMBL.
+
+10.	The updated example_input script includes new parameters to account for
+	the new features introduced in this version.
+	Please update previously used input scripts according to the new template!
+
+
+NIMBL v0.0.4 (15 Jun 2012)
+--------------------------
+
+1.	Calling the same or different modules multiple times avoids re-reading
+	of input files (methylation and annotation files) if the filenames given
+	in the input script have not changed.
+	
+2.	Each report file contains the version of NIMBL in the first line.
+
+3.	The report of NIMBL-qc contains the values plotted as bar plots (i.e.
+	the number of missing beta values in each sample, the number of low
+	quality measurements and corresponding percent value in each sample).
+	
+
+NIMBL v0.0.3 (13 Jun 2012)
+--------------------------
+
+1.	First formal release with user guide.
